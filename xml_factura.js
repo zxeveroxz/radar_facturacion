@@ -49,10 +49,82 @@ var obj = {
                 "@listID":"ISO 4217 Alpha",
                 "@listName":"Currency",
                 "@listAgencyName":"United Nations Economic Commission for Europe",
-
-
                 '#text':"PEN"
             },
+            "cac:Signature":{
+                "cbc:ID":{
+                    "#text":"JSJ SIGN"
+                },
+                "cac:SignatoryParty":{
+                    "cac:PartyIdentification":{
+                        "cbc:ID":{
+                            "#text":"RUCCCC"
+                        }   
+                    },
+                    "cac:PartyName":{
+                        "cbc:Name":{
+                            "#text":"RAZON SOCIAL VA AQUI"
+                        }   
+                    }
+                },
+                "cac:DigitalSignatureAttachment":{
+                    "cac:ExternalReference":{
+                        "cbc:URI":{
+                            "#text":"#JSJSign",
+                        }
+                    }   
+                }
+            },
+            "cac:AccountingSupplierParty":{
+                "cac:Party":{
+                    "cac:PartyIdentification":{
+                        "cbc:ID":{
+                            "@schemeID":"6",
+                            "#text":"#JSJSign"
+                        }
+                        
+                    },
+                    "cac:PartyName":{
+                        "cbc:Name":{
+                            "#text":"RAZON SOCIAL"
+                        }
+                        
+                    },
+                    "cac:PartyLegalEntity":{
+                        "cbc:RegistrationName":{
+                            "#text":"RAZON SOCIALLLL"
+                        }
+                        
+                    }
+                }
+            },
+            "cac:AccountingCustomerParty":{
+                "cac:Party":{
+                    "cac:PartyIdentification":{
+                        "cbc:ID":{
+                            "@schemeID":"6",
+                            "#text":"#NUMERO DOC"
+                        }
+                        
+                    },
+                    "cac:PartyLegalEntity":{
+                        "cbc:RegistrationName":{
+                            "#text":"RAZON SOCIALLLL"
+                        }
+                        
+                    }
+                }
+            },
+            "cac:PaymentTerms":{
+                "cbc:ID":{
+                    "#text":"FORMAPAGO"
+                },
+                "cbc:PaymentMeansID":{
+                    "#text":"CONTADO"
+                }
+
+            },
+
             repo: {
                 '@type': 'git', // attributes start with @
                 '#text': 'git://github.com/oozcitak/xmlbuilder-js.git' // text node
