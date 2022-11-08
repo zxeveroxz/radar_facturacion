@@ -45,6 +45,14 @@ var obj = {
                 "@languageLocaleID":"1000",
                 '#text':"aqui va ek numero convertido a texto"
             },
+            "cbc:DocumentCurrencyCode":{
+                "@listID":"ISO 4217 Alpha",
+                "@listName":"Currency",
+                "@listAgencyName":"United Nations Economic Commission for Europe",
+
+
+                '#text':"PEN"
+            },
             repo: {
                 '@type': 'git', // attributes start with @
                 '#text': 'git://github.com/oozcitak/xmlbuilder-js.git' // text node
