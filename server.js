@@ -55,15 +55,11 @@ function inicio() {
                                     WHERE NUMERO > 145350 
                                     ORDER BY NUMERO ASC;`);
 
-
             //console.log(result1);
             if (result1.rowsAffected > 0)
-                //////////////// await hola(result1);
                 console.log(result1);
             else
                 console.log("Esperando nuevos envios..." + new Date());
-            // Stored procedure
-
         } catch (err) {
             console.log(err);
         }
