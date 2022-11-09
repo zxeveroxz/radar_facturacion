@@ -5,3 +5,84 @@
     <cbc:Amount currencyID="PEN">' . $CAB->rrcc . '</cbc:Amount>
     <cbc:BaseAmount currencyID="PEN">' . Ayudas::numerosSunat($CAB->base + $CAB->rrcc) . '</cbc:BaseAmount>
 </cac:AllowanceCharge>
+
+
+<cac:TaxTotal>
+    <cbc:TaxAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat($CAB->igv) . '</cbc:TaxAmount>
+    <cac:TaxSubtotal>
+      <cbc:TaxableAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat($CAB->base) . '</cbc:TaxableAmount>
+      <cbc:TaxAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat($CAB->igv) . '</cbc:TaxAmount>
+      <cac:TaxCategory>
+        <cac:TaxScheme>
+          <cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">1000</cbc:ID>
+          <cbc:Name>IGV</cbc:Name>
+          <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+        </cac:TaxScheme>
+      </cac:TaxCategory>
+    </cac:TaxSubtotal>
+  </cac:TaxTotal>  
+  <cac:LegalMonetaryTotal>
+    <cbc:LineExtensionAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat($CAB->base) . '</cbc:LineExtensionAmount>
+    <cbc:TaxInclusiveAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat($CAB->base + $CAB->igv) . '</cbc:TaxInclusiveAmount>
+    <cbc:ChargeTotalAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat($CAB->rrcc) . '</cbc:ChargeTotalAmount>
+    <cbc:PayableAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat($CAB->total) . '</cbc:PayableAmount>
+  </cac:LegalMonetaryTotal>
+
+
+
+
+  $XMLL .= '<cac:InvoiceLine>
+    <cbc:ID>' . $i . '</cbc:ID>
+    <cbc:InvoicedQuantity unitCode="NIU">' . $d->can . '</cbc:InvoicedQuantity>
+    <cbc:LineExtensionAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat($d->val_vta) . '</cbc:LineExtensionAmount>
+    <cac:PricingReference>
+      <cac:AlternativeConditionPrice>
+        <cbc:PriceAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat(($d->val_vta + $d->tot_igv) / $d->can, 6) . '</cbc:PriceAmount>
+        <cbc:PriceTypeCode>01</cbc:PriceTypeCode>
+      </cac:AlternativeConditionPrice>
+    </cac:PricingReference>
+    
+    <cac:TaxTotal>
+      <cbc:TaxAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat($d->tot_igv) . '</cbc:TaxAmount>';
+
+                if ($d->TIPOIVA == 2) {
+                    $XMLL .= '
+        <cac:TaxSubtotal>
+        <cbc:TaxAmount currencyID="' . $moneda . '">' . number_format(($d->can * 0.40), 2) . '</cbc:TaxAmount>
+        <cbc:BaseUnitMeasure unitCode="NIU">' . (int) $d->can . '</cbc:BaseUnitMeasure>
+            <cac:TaxCategory>
+                <cbc:PerUnitAmount currencyID="' . $moneda . '">0.20</cbc:PerUnitAmount>
+                <cac:TaxScheme>
+                    <cbc:ID schemeAgencyName="PE:SUNAT" schemeName="Codigo de tributos" schemeURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo05">7152</cbc:ID>
+                    <cbc:Name>ICBPER</cbc:Name>
+                    <cbc:TaxTypeCode>OTH</cbc:TaxTypeCode>                        
+                </cac:TaxScheme>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>            
+        ';
+                }
+
+                $XMLL .= '<cac:TaxSubtotal>
+                            <cbc:TaxableAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat($d->val_vta) . '</cbc:TaxableAmount>
+                            <cbc:TaxAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat($d->tot_igv) . '</cbc:TaxAmount>
+                            <cac:TaxCategory>
+                            <cbc:Percent>' . ($ruc == "20603587929" ? '10.00' : '18.00') . '</cbc:Percent>
+                            <cbc:TaxExemptionReasonCode>10</cbc:TaxExemptionReasonCode>
+                            <cac:TaxScheme>
+                                <cbc:ID>1000</cbc:ID>
+                                <cbc:Name>IGV</cbc:Name>
+                                <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+                            </cac:TaxScheme>
+                            </cac:TaxCategory>
+                        </cac:TaxSubtotal>
+                        </cac:TaxTotal>
+                        <cac:Item>
+                        <cbc:Description><![CDATA[' . trim($d->nom) . ']]></cbc:Description>
+                        <cac:SellersItemIdentification>
+                            <cbc:ID>' . $d->producto . '</cbc:ID>
+                        </cac:SellersItemIdentification>
+                        </cac:Item>
+                        <cac:Price>
+                        <cbc:PriceAmount currencyID="' . $moneda . '">' . Ayudas::numerosSunat(number_format(($d->val_vta / $d->can), 6, '.', '')) . '</cbc:PriceAmount>
+                        </cac:Price>    
+                    </cac:InvoiceLine>';
