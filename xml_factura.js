@@ -193,221 +193,121 @@ var obj = {
             "@currencyID": "PEN",
          },
       },
-      "cac:InvoiceLine": {
-         "cbc:ID": { "#text": 1111111, },
-         "cbc:InvoicedQuantity": {
-            "@unitCode": "NIU",
-            "#text": "10",
-         },
-         "cbc:LineExtensionAmount": {
-            "@currencyID": "PEN",
-            "#text": "100",
-         },
-         "cac:PricingReference": {
-            "cac:AlternativeConditionPrice": {
-               "cbc:PriceAmount": {
-                  "@currencyID": "PEN",
-                  "#text": "100",
-               },
-               "cbc:PriceTypeCode": {
-                  "#text": "01",
-               },
-            },
-         },
-         "cac:TaxTotal": {
-            "cbc:TaxAmount": {
-               "@currencyID": "PEN",
-               "#text": "1",
-            },
-            "cac:TaxSubtotal": {
-               "cbc:TaxAmount": {
-                  "@currencyID": "PEN",
-                  "#text": "1",
-               },
-               "cbc:BaseUnitMeasure": {
-                  "@unitCode": "NIU",
-                  "#text": "10",
-
-               },
-               "cac:TaxCategory": {
-                  "cbc:PerUnitAmount": {
-                     "@currencyID": "PEN",
-                     "#text": "0.20",
-                  },
-                  "cac:TaxScheme": {
-                     "cbc:ID": {
-                        "@schemeAgencyName": "PE:SUNAT",
-                        "@schemeName": "Codigo de tributos",
-                        "@schemeURI": "urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo05",
-                        "#text": "71.52",
-                     },
-                     "cbc:Name": {
-                        "#text": "ICBPER",
-                     },
-                     "cbc:TaxTypeCode": {
-                        "#text": "OTH",
-                     }
-                  }
-               }
-            },
-            "cac:TaxSubtotal": {
-               "cbc:TaxableAmount": {
-                  "@currencyID": "PEN",
-                  "#text": "1",
-               },
-               "cbc:TaxAmount": {
-                  "@currencyID": "PEN",
-                  "#text": "1",
-               },
-               "cac:TaxCategory": {
-                  "cbc:Percent": {
-                     "#text": "18",
-                  },
-                  "cbc:TaxExemptionReasonCode": {
-                     "#text": "10",
-                  },
-                  "cac:TaxScheme": {
-                     "cbc:ID": {
-                        "#text": "1000",
-                     },
-                     "cbc:Name": {
-                        "#text": "IGV",
-                     },
-                     "cbc:TaxTypeCode": {
-                        "#text": "VAT",
-                     }
-                  }
-               }
-            }
-         },
-         "cac:Item": {
-            "cbc:Description": {
-               "#text": "DESCRIPTCION",
-            },
-            "cac:SellersItemIdentification": {
-               "cbc:ID": {
-                  "#text": "PRODUCTO",
-               }
-            }
-         },
-         "cac:Price": {
-            "cbc:PriceAmount": {
-               "@currencyID": "PEN",
-               "#text": "1",
-            }
-         }
-      },
-      "cac:InvoiceLine": {
-         "cbc:ID": { "#text": 222222222, },
-         "cbc:InvoicedQuantity": {
-            "@unitCode": "NIU",
-            "#text": "10",
-         },
-         "cbc:LineExtensionAmount": {
-            "@currencyID": "PEN",
-            "#text": "100",
-         },
-         "cac:PricingReference": {
-            "cac:AlternativeConditionPrice": {
-               "cbc:PriceAmount": {
-                  "@currencyID": "PEN",
-                  "#text": "100",
-               },
-               "cbc:PriceTypeCode": {
-                  "#text": "01",
-               },
-            },
-         },
-         "cac:TaxTotal": {
-            "cbc:TaxAmount": {
-               "@currencyID": "PEN",
-               "#text": "1",
-            },
-            "cac:TaxSubtotal": {
-               "cbc:TaxAmount": {
-                  "@currencyID": "PEN",
-                  "#text": "1",
-               },
-               "cbc:BaseUnitMeasure": {
-                  "@unitCode": "NIU",
-                  "#text": "10",
-
-               },
-               "cac:TaxCategory": {
-                  "cbc:PerUnitAmount": {
-                     "@currencyID": "PEN",
-                     "#text": "0.20",
-                  },
-                  "cac:TaxScheme": {
-                     "cbc:ID": {
-                        "@schemeAgencyName": "PE:SUNAT",
-                        "@schemeName": "Codigo de tributos",
-                        "@schemeURI": "urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo05",
-                        "#text": "71.52",
-                     },
-                     "cbc:Name": {
-                        "#text": "ICBPER",
-                     },
-                     "cbc:TaxTypeCode": {
-                        "#text": "OTH",
-                     }
-                  }
-               }
-            },
-            "cac:TaxSubtotal": {
-               "cbc:TaxableAmount": {
-                  "@currencyID": "PEN",
-                  "#text": "1",
-               },
-               "cbc:TaxAmount": {
-                  "@currencyID": "PEN",
-                  "#text": "1",
-               },
-               "cac:TaxCategory": {
-                  "cbc:Percent": {
-                     "#text": "18",
-                  },
-                  "cbc:TaxExemptionReasonCode": {
-                     "#text": "10",
-                  },
-                  "cac:TaxScheme": {
-                     "cbc:ID": {
-                        "#text": "1000",
-                     },
-                     "cbc:Name": {
-                        "#text": "IGV",
-                     },
-                     "cbc:TaxTypeCode": {
-                        "#text": "VAT",
-                     }
-                  }
-               }
-            }
-         },
-         "cac:Item": {
-            "cbc:Description": {
-               "#text": "DESCRIPTCION",
-            },
-            "cac:SellersItemIdentification": {
-               "cbc:ID": {
-                  "#text": "PRODUCTO",
-               }
-            }
-         },
-         "cac:Price": {
-            "cbc:PriceAmount": {
-               "@currencyID": "PEN",
-               "#text": "1",
-            }
-         }
-      }
+      
+      
    }
 };
 
+let InvoiceLine = [];
+for(let xx=0;xx<3;xx++){
+   let linea= {
+      "cbc:ID": { "#text": xx, },
+      "cbc:InvoicedQuantity": {
+         "@unitCode": "NIU",
+         "#text": "10",
+      },
+      "cbc:LineExtensionAmount": {
+         "@currencyID": "PEN",
+         "#text": "100",
+      },
+      "cac:PricingReference": {
+         "cac:AlternativeConditionPrice": {
+            "cbc:PriceAmount": {
+               "@currencyID": "PEN",
+               "#text": "100",
+            },
+            "cbc:PriceTypeCode": {
+               "#text": "01",
+            },
+         },
+      },
+      "cac:TaxTotal": {
+         "cbc:TaxAmount": {
+            "@currencyID": "PEN",
+            "#text": "1",
+         },
+         "cac:TaxSubtotal": {
+            "cbc:TaxAmount": {
+               "@currencyID": "PEN",
+               "#text": "1",
+            },
+            "cbc:BaseUnitMeasure": {
+               "@unitCode": "NIU",
+               "#text": "10",
 
+            },
+            "cac:TaxCategory": {
+               "cbc:PerUnitAmount": {
+                  "@currencyID": "PEN",
+                  "#text": "0.20",
+               },
+               "cac:TaxScheme": {
+                  "cbc:ID": {
+                     "@schemeAgencyName": "PE:SUNAT",
+                     "@schemeName": "Codigo de tributos",
+                     "@schemeURI": "urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo05",
+                     "#text": "71.52",
+                  },
+                  "cbc:Name": {
+                     "#text": "ICBPER",
+                  },
+                  "cbc:TaxTypeCode": {
+                     "#text": "OTH",
+                  }
+               }
+            }
+         },
+         "cac:TaxSubtotal": {
+            "cbc:TaxableAmount": {
+               "@currencyID": "PEN",
+               "#text": "1",
+            },
+            "cbc:TaxAmount": {
+               "@currencyID": "PEN",
+               "#text": "1",
+            },
+            "cac:TaxCategory": {
+               "cbc:Percent": {
+                  "#text": "18",
+               },
+               "cbc:TaxExemptionReasonCode": {
+                  "#text": "10",
+               },
+               "cac:TaxScheme": {
+                  "cbc:ID": {
+                     "#text": "1000",
+                  },
+                  "cbc:Name": {
+                     "#text": "IGV",
+                  },
+                  "cbc:TaxTypeCode": {
+                     "#text": "VAT",
+                  }
+               }
+            }
+         }
+      },
+      "cac:Item": {
+         "cbc:Description": {
+            "#text": "DESCRIPTCION",
+         },
+         "cac:SellersItemIdentification": {
+            "cbc:ID": {
+               "#text": "PRODUCTO",
+            }
+         }
+      },
+      "cac:Price": {
+         "cbc:PriceAmount": {
+            "@currencyID": "PEN",
+            "#text": "1",
+         }
+      }
+   }
+InvoiceLine.push(linea);
+};
 
-
-
+obj.Invoice["cac:InvoiceLine"] = InvoiceLine;
 
 
 var xml = builder.create(obj).end({ pretty: true })
