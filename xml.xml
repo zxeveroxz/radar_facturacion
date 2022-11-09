@@ -1,0 +1,7 @@
+<cac:AllowanceCharge>
+    <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReasonCode listAgencyName="PE:SUNAT" listName="Cargo/descuento" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo53">50</cbc:AllowanceChargeReasonCode>
+    <cbc:MultiplierFactorNumeric>' . Ayudas::numerosSunat($factor, 5) . '</cbc:MultiplierFactorNumeric>                                        
+    <cbc:Amount currencyID="PEN">' . $CAB->rrcc . '</cbc:Amount>
+    <cbc:BaseAmount currencyID="PEN">' . Ayudas::numerosSunat($CAB->base + $CAB->rrcc) . '</cbc:BaseAmount>
+</cac:AllowanceCharge>
