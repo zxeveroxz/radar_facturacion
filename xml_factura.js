@@ -114,14 +114,6 @@ var obj = {
             }
          }
       },
-      'cac:PaymentTerms': {
-         'cbc:ID': {
-            '#text': 'FORMAPAGO'
-         },
-         'cbc:PaymentMeansID': {
-            '#text': 'CONTADO'
-         }
-      },
       "cac:AllowanceCharge": {
          "cbc:ChargeIndicator": {
             "#text": "true"
@@ -198,7 +190,50 @@ var obj = {
    }
 };
 
+let PaymentTerms = [];
+let contado = {
+   "cbc:ID":{
+      "#text":"FormaPago"
+   },
+   "cbc:PaymentMeansID":{
+      "#text":"Contado"
+   }
+};
+let credito = {
+   "cbc:ID":{
+      "#text":"FormaPago"
+   },
+   "cbc:PaymentMeansID":{
+      "#text":"Credito"
+   },
+   "cbc:Amount":{
+      "@currencyID":"PEN",
+      "#text":"150"
+   }
+};
+PaymentTerms.push(credito);
+
+for(let f=0;f<3;f++){
+   let linea_credito = {
+      "cbc:ID":{
+         "#text":"FormaPago"
+      },
+      "cbc:PaymentMeansID":{
+         "#text":"Cuota001"
+      },
+      "cbc:Amount":{
+         "@currencyID":"PEN",
+         "#text":100
+      },
+      "cbc:PaymentDueDate":{
+         "#text":"2022-11-16"
+      }
+   }
+   PaymentTerms.push(linea_credito);
+}
+
 let InvoiceLine = [];
+
 for(let xx=0;xx<3;xx++){
    let linea= {
       "cbc:ID": { "#text": xx, },
@@ -307,9 +342,33 @@ for(let xx=0;xx<3;xx++){
 InvoiceLine.push(linea);
 };
 
+obj.Invoice["cac:PaymentTerms"] = PaymentTerms;
 obj.Invoice["cac:InvoiceLine"] = InvoiceLine;
-
 
 var xml = builder.create(obj).end({ pretty: true })
 console.log(xml)
 
+/*
+<cac:PaymentTerms>
+<cbc:ID>FormaPago</cbc:ID>
+<cbc:PaymentMeansID>Contado</cbc:PaymentMeansID>
+</cac:PaymentTerms>
+
+<cac:PaymentTerms>
+<cbc:ID>FormaPago</cbc:ID>
+<cbc:PaymentMeansID>Credito</cbc:PaymentMeansID>
+<cbc:Amount currencyID="PEN">236</cbc:Amount>
+</cac:PaymentTerms>
+<cac:PaymentTerms>
+<cbc:ID>FormaPago</cbc:ID>
+<cbc:PaymentMeansID>Cuota001</cbc:PaymentMeansID>
+<cbc:Amount currencyID="PEN">100</cbc:Amount>
+<cbc:PaymentDueDate>2022-11-16</cbc:PaymentDueDate>
+</cac:PaymentTerms>
+<cac:PaymentTerms>
+<cbc:ID>FormaPago</cbc:ID>
+<cbc:PaymentMeansID>Cuota002</cbc:PaymentMeansID>
+<cbc:Amount currencyID="PEN">136</cbc:Amount>
+<cbc:PaymentDueDate>2022-11-23</cbc:PaymentDueDate>
+</cac:PaymentTerms>
+*/
