@@ -13,12 +13,17 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "facturacionelectronicapy-xmlsign": "^1.0.9",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
     "mssql": "^9.0.1",
+    "pem": "^1.14.6",
+    "pkcs12-xml": "^1.0.6",
     "soap": "^0.45.0",
     "socket.io": "^4.5.3",
-    "xmlbuilder": "^15.1.1"
+    "xml-crypto": "^3.0.1",
+    "xmlbuilder": "^15.1.1",
+    "xmldom": "^0.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

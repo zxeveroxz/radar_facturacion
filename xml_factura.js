@@ -213,7 +213,7 @@ let credito = {
 };
 PaymentTerms.push(credito);
 
-for(let f=0;f<3;f++){
+for(let f=0;f<1;f++){
    let linea_credito = {
       "cbc:ID":{
          "#text":"FormaPago"
@@ -234,7 +234,7 @@ for(let f=0;f<3;f++){
 
 let InvoiceLine = [];
 
-for(let xx=0;xx<3;xx++){
+for(let xx=0;xx<1;xx++){
    let linea= {
       "cbc:ID": { "#text": xx, },
       "cbc:InvoicedQuantity": {
@@ -346,29 +346,175 @@ obj.Invoice["cac:PaymentTerms"] = PaymentTerms;
 obj.Invoice["cac:InvoiceLine"] = InvoiceLine;
 
 var xml = builder.create(obj).end({ pretty: true })
-console.log(xml)
+//console.log(xml)
 
+const transforms = [
+   'http://www.w3.org/2000/09/xmldsig#enveloped-signature',
+ ];
+ 
+ const infoProvider = (pem) => {
+   return {
+     getKeyInfo() {
+       const cert = this.getCert();
+       return `<X509Data><X509Certificate>${cert}</X509Certificate></X509Data>`;
+     },
+     getCert() {
+       const certLines = pem.cert.split('\n');
+       return certLines.filter((e, i) => i && e && e.indexOf('-----') !== 0).
+           join('');
+     },
+   };
+ };
+
+
+const fs = require("fs");
+const path = require("path")
+
+ localName = 'Invoice';
+ pin_certif = '12345678';
+ ruta_certif = '10424517912.pfx'; //'ruta donde esta tu certificado';
+ rutaXML =xml;// 'ruta donde esta tu xml';
+ 
+     function signXML(rutaXML, ruta_certif, pin_certif, localName) {
+    return new Promise( async (resolve, reject) => {
+       try {
+          let SignedXml = require('xml-crypto').SignedXml;
+          let DOMParser = require('xmldom').DOMParser;
+          ///////////////////////////////
+          let xml = rutaXML; //fs.readFileSync(rutaXML, 'utf8');
+          ///
+          let json_pem = await crearPEM_from_PFX(ruta_certif, pin_certif);
+          ///
+          let transf = ['http://www.w3.org/2000/09/xmldsig#enveloped-signature'];
+          let sig = new SignedXml()
+          sig.addReference(`//*[local-name(.)='${localName}']`, transf, '', '', '', '', true)
+          sig.signingKey =  new Buffer(json_pem.value.key);
+          //sig.signingKey = fs.readFileSync("key.pem");
+          sig.keyInfoProvider = KeyInfoProvider(json_pem.value);
+          sig.canonicalizationAlgorithm = 'http://www.w3.org/2001/10/xml-exc-c14n#';
+          sig.signatureAlgorithm        = 'http://www.w3.org/2000/09/xmldsig#rsa-sha1';
+          sig.computeSignature(xml, { location: { reference: `//*[local-name(.)='ExtensionContent']`}, prefix: 'ds', attrs: {Id: 'SignatureSP'} });
+          const __signedXML = sig.getSignedXml();
+          await crearXML(rutaXML,  __signedXML);
+          ///////////////////////////////
+          let parser = new DOMParser();
+          let doc = parser.parseFromString(__signedXML, 'text/xml');
+          let hash_cpe = doc.getElementsByTagName('ds:DigestValue')[0].firstChild.data;
+    
+          return resolve({ msj : 'El xml ha sido firmado', hash_cpe : hash_cpe, __signedXML : __signedXML });
+       } catch(err) {
+          return reject({ msj : 'Hubo un error al firmar el XML', stack : err });
+       }
+    });
+ }
+
+ function crearXML(rutaFile, xmlData) {
+	return new Promise( (resolve, reject) => {
+		try {
+			fs.writeFileSync(rutaFile, xmlData, 'utf8');
+			return resolve({ msj : 'Se creo el xml' });
+		} catch(err) {
+			return reject({ err : err, msj : 'Hubo un error al crear el XML' });
+		}
+	});
+}
+
+function crearPEM_from_PFX(ruta_certif, pin_certif) {
+	return new Promise( (resolve, reject) => {
+		try {
+			const pem = require('pem'); 
+			pem.config({
+				pathOpenSSL: path.resolve('C:\\Program Files\\OpenSSL-Win64\\bin\\openssl.exe')
+			});
+			const pfx = fs.readFileSync(ruta_certif);
+			pem.readPkcs12(pfx, { p12Password : pin_certif }, async (err, new_pem) => {
+				if(err) {
+					return reject({ msj : 'Hubo un error en el pem.readPkcs12', stack : err });
+				}
+				return resolve({ value : new_pem });
+			});
+		} catch(err) {
+			return reject({ err : err, msj : 'Hubo un error al crear el PEM' });
+		}
+	});
+}
+
+function KeyInfoProvider(pem) {
+	return {
+		getKey() {
+			const cert = this.getCert();
+		  	return `<ds:X509Data><ds:X509Certificate>${cert}</ds:X509Certificate></ds:X509Data>`;
+		},
+		getKeyInfo() {
+			  const cert = this.getCert();
+		  	  return `<ds:X509Data><ds:X509Certificate>${cert}</ds:X509Certificate></ds:X509Data>`;
+		},
+		getCert() {
+		  	try {
+				const certLines = pem.cert.split('\n');
+				return certLines.filter((e, i) => i && e && e.indexOf('-----') !== 0).join('');
+		  	} catch (err) {
+				throw Error(err);
+		 	}
+		}
+	};
+}
+
+
+ signXML(rutaXML,ruta_certif,pin_certif,localName)
+ /*
+
+  localName = 'Invoice';
+ pin_certif = '12345678';
+ ruta_certif = '10424517912.pfx'; //'ruta donde esta tu certificado';
+ rutaXML =xml;// 'ruta donde esta tu xml';
+
+var SignedXml = require('xml-crypto').SignedXml	  
+	  , fs = require('fs')
+
+/*	var xml = "<library>" +
+	            "<book>" +
+	              "<name>Harry Potter</name>" +
+	            "</book>" +
+	          "</library>"
+
+   
+	var sig = new SignedXml()
+	//sig.addReference('//*[local-name(.)=\'ExtensionContent\']');  
+	sig.signingKey = fs.readFileSync("key.pem");
+   sig.canonicalizationAlgorithm = "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
+   sig.addReference("//*[local-name(.)=\'ExtensionContent\']", ["http://www.w3.org/2000/09/xmldsig#enveloped-signature"])
+   sig.computeSignature(xml, {
+      location: {
+         reference: "//*[local-name(.)='ExtensionContent']",
+         action: "prepend"
+      },
+      prefix: 'ds',
+      attrs: {
+         Id: 'SignatureSP'
+      }
+   })
+
+
+ //  sig.canonicalizationAlgorithm = 'http://www.w3.org/TR/2001/REC-xml-c14n-20010315';
+//sig.keyInfoProvider = infoProvider(pem);
+//sig.computeSignature(xml, {prefix: 'ds', attrs: {Id: 'SignatureSP'}});
+sig.computeSignature(xml, { location: { reference: "//*[local-name(.)='ExtensionContent']", action: "prepend" }, prefix: 'ds', attrs: {Id: 'SignatureSP'} });
+
+	//sig.computeSignature(xml)
+	fs.writeFileSync("signed.xml", sig.getSignedXml())
+
+
+//.signXML(xml, '10424517912.pfx', '12345678')
+//.then(xmlFirmado => console.log("XML firmado", xmlFirmado));
 /*
-<cac:PaymentTerms>
-<cbc:ID>FormaPago</cbc:ID>
-<cbc:PaymentMeansID>Contado</cbc:PaymentMeansID>
-</cac:PaymentTerms>
-
-<cac:PaymentTerms>
-<cbc:ID>FormaPago</cbc:ID>
-<cbc:PaymentMeansID>Credito</cbc:PaymentMeansID>
-<cbc:Amount currencyID="PEN">236</cbc:Amount>
-</cac:PaymentTerms>
-<cac:PaymentTerms>
-<cbc:ID>FormaPago</cbc:ID>
-<cbc:PaymentMeansID>Cuota001</cbc:PaymentMeansID>
-<cbc:Amount currencyID="PEN">100</cbc:Amount>
-<cbc:PaymentDueDate>2022-11-16</cbc:PaymentDueDate>
-</cac:PaymentTerms>
-<cac:PaymentTerms>
-<cbc:ID>FormaPago</cbc:ID>
-<cbc:PaymentMeansID>Cuota002</cbc:PaymentMeansID>
-<cbc:Amount currencyID="PEN">136</cbc:Amount>
-<cbc:PaymentDueDate>2022-11-23</cbc:PaymentDueDate>
-</cac:PaymentTerms>
-*/
+const Dsig = require('pkcs12-xml');
+var dsig = new Dsig('10424517912.pfx');
+try {
+   dsig.openSession('12345678');
+   console.log(dsig.computeSignature(xml, 'ext:UBLExtensions'));
+} catch(e) {
+   console.error(e);
+} finally {
+   dsig.closeSession();
+}*/
