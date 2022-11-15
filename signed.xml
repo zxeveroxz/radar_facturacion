@@ -2,7 +2,25 @@
 <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ext:UBLExtensions Id="_0">
     <ext:UBLExtension>
-      <ext:ExtensionContent><ds:Signature Id="SignatureSP" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#_0"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>tQTxxZoaMPsqNBqOScmsyHYZxck=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>VyULojMo0DmnT9itR7RNT+Is5ISIqSb/JCTMX6w838QoEAhvknfc2IjnhDORo52fHTkV2zsMi0ytjwJy+f3MnZOOS/i8CXxw2TxCUzwPT7l/M7Pjnk7sL6XK3hlLUD2pJhcb+wyUdCmb4E+3S8UM096n9qeHZUk8M6DMERSGXxMOYbR90E4oSM7+LKKV5F7sgASUN3mewT+QMkMKCy5nubr2REqqsC10ksPP5gimYRIR/qcY1VGdfjWY7eiYS7/6dBMB62xMSATqkFvVrq7Fh1xgAU+bZoCvt4Sfscn1Xzr8PBK3IDHyhI2KMfLJEQV5lDPueQJ+v0jiTy04WU/KTg==</ds:SignatureValue><ds:KeyInfo><ds:X509Data/></ds:KeyInfo></ds:Signature></ext:ExtensionContent>
+      <ext:ExtensionContent>
+        <ds:Signature Id="SignatureSP" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:SignedInfo>
+            <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+            <ds:Reference URI="#_0">
+              <ds:Transforms>
+                <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+              </ds:Transforms>
+              <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+              <ds:DigestValue>tQTxxZoaMPsqNBqOScmsyHYZxck=</ds:DigestValue>
+            </ds:Reference>
+          </ds:SignedInfo>
+          <ds:SignatureValue>VyULojMo0DmnT9itR7RNT+Is5ISIqSb/JCTMX6w838QoEAhvknfc2IjnhDORo52fHTkV2zsMi0ytjwJy+f3MnZOOS/i8CXxw2TxCUzwPT7l/M7Pjnk7sL6XK3hlLUD2pJhcb+wyUdCmb4E+3S8UM096n9qeHZUk8M6DMERSGXxMOYbR90E4oSM7+LKKV5F7sgASUN3mewT+QMkMKCy5nubr2REqqsC10ksPP5gimYRIR/qcY1VGdfjWY7eiYS7/6dBMB62xMSATqkFvVrq7Fh1xgAU+bZoCvt4Sfscn1Xzr8PBK3IDHyhI2KMfLJEQV5lDPueQJ+v0jiTy04WU/KTg==</ds:SignatureValue>
+          <ds:KeyInfo>
+            <ds:X509Data />
+          </ds:KeyInfo>
+        </ds:Signature>
+      </ext:ExtensionContent>
     </ext:UBLExtension>
   </ext:UBLExtensions>
   <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
