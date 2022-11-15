@@ -4,147 +4,174 @@
     <ext:UBLExtension>
       <ext:ExtensionContent>
         <ds:Signature Id="id_">
-          <SignedInfo>
+          <ds:SignedInfo>
             <ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:CanonicalizationMethod>
             <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod>
-            <Reference URI="#[object Object]">
-              <Transforms>
-                <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></Transform>
-              </Transforms>
-              <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></DigestMethod>
-              <DigestValue>20sMbp8i432KbhvWGRFPynPx8ys=</DigestValue>
-            </Reference>
-          </SignedInfo>
-<SignatureValue>xfRlZpLjferJwQR+bsGxefIJ8/PfT4lx0NgKtDtvjU6f7KeoiiWdegOkwlYd5lPZJxBB3AmLbBNygosFHiau7jK+UpG1rCibV9yqD/ejnPIVwaugzXpdx7riZikdiYQD7N3+hPHtxZu77tqp4xtnHEWVbUWmHZMf3tDRFE5aHgraXgpOCrZlBR/ThMjdU0QvmALpAOFy8DeikhnNe8GE95nVVHy3DOJnSW2B604r75xIPDgyfXYwpwDJQZGx0lT2Thx2LMMsUiivIxjhjMp/LWtQX4fxfU1wTKb+HFCYh91wGv+VETqKT+Ca18zCNDtKqK21ihvGSfBoe11eSO/e0A==</SignatureValue>
-<KeyInfo>
-<X509Data>
-<X509Certificate>MIIFBzCCA++gAwIBAgIIOnyf00j6Vx4wDQYJKoZIhvcNAQELBQAwggENMRswGQYKCZImiZPyLGQBGRYLTExBTUEuUEUgU0ExCzAJBgNVBAYTAlBFMQ0wCwYDVQQIDARMSU1BMQ0wCwYDVQQHDARMSU1BMRgwFgYDVQQKDA9UVSBFTVBSRVNBIFMuQS4xRTBDBgNVBAsMPEROSSA5OTk5OTk5IFJVQyAxMDQyNDUxNzkxMiAtIENFUlRJRklDQURPIFBBUkEgREVNT1NUUkFDScOTTjFEMEIGA1UEAww7Tk9NQlJFIFJFUFJFU0VOVEFOVEUgTEVHQUwgLSBDRVJUSUZJQ0FETyBQQVJBIERFTU9TVFJBQ0nDk04xHDAaBgkqhkiG9w0BCQEWDWRlbW9AbGxhbWEucGUwHhcNMjIxMTExMjIxNDQxWhcNMjQxMTEwMjIxNDQxWjCCAQ0xGzAZBgoJkiaJk/IsZAEZFgtMTEFNQS5QRSBTQTELMAkGA1UEBhMCUEUxDTALBgNVBAgMBExJTUExDTALBgNVBAcMBExJTUExGDAWBgNVBAoMD1RVIEVNUFJFU0EgUy5BLjFFMEMGA1UECww8RE5JIDk5OTk5OTkgUlVDIDEwNDI0NTE3OTEyIC0gQ0VSVElGSUNBRE8gUEFSQSBERU1PU1RSQUNJw5NOMUQwQgYDVQQDDDtOT01CUkUgUkVQUkVTRU5UQU5URSBMRUdBTCAtIENFUlRJRklDQURPIFBBUkEgREVNT1NUUkFDScOTTjEcMBoGCSqGSIb3DQEJARYNZGVtb0BsbGFtYS5wZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANw8WLBi3DTL0I6Xz1O1+wwfn3OdGPVWNi03LwJ4iFDRC+KVBGwdQeHsfLtpvrv1JhUYrSMZXrklhZTncFeafNEF50NqcdD79xFAkZA8Ri8B5cB1Gp3Ux6Jj9qRX5TBHIVyUHThwGQA6JLAXj62RsIcOvfjmr570FtQ1i8W0xnw2r9LbZ1bVdGqm+HU6fR4dpRcFnBxBJd6xYQ0k47QPWrnY0Hz1LtDPmaG4r71fg5C/HeJo6g8MtAietMKdXgbNkRhqAJV/6qxTn59IOmOEszWkt+6WYX+KsGl6rsCNKZbW29huj/HxL3oQ27PBlsFAbAzz9wRv3bF1S19DFVZ3KlUCAwEAAaNnMGUwHQYDVR0OBBYEFFw4MnAgG5sPdzjYrFiMhTylurAHMB8GA1UdIwQYMBaAFFw4MnAgG5sPdzjYrFiMhTylurAHMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA4GA1UdDwEB/wQEAwIHgDANBgkqhkiG9w0BAQsFAAOCAQEAwtjQVnaiOvAtCwurKgMUavCy43R1/cD9K2VqolRRK62AcpP4Xp0GAd3igxa0Gr8ol3J4aHgDiXHcurmzgYI4VkzmZnQRjgwNxWkgDVJGiZGNXMJwgPywFmIRGwOsbMfBb1LHvQoUtgyNI89o1C/StWzEhuiwSVnuZO//a9m2/7KC0cOt8ghAGG0shUfxGXb2R8AAUlcygYXe8cKuiYfKeeuIrigzwgQZintLmmnUPuUMqr5KO60BDH1+l3GbqavDaWkU2GImhMOV8From+VlRK8Js2prOMNTLJENyX4yBJhrmNAmViO4xdbvEA0gSdrZaoZu6+sFuANypp22J5a5yw==</X509Certificate>
-</X509Data>
-</KeyInfo>
-</ds:Signature>
-</ext:ExtensionContent>
-</ext:UBLExtension>
-</ext:UBLExtensions>
-<cbc:UBLVersionID>2.1</cbc:UBLVersionID>
-<cbc:CustomizationID>2.0</cbc:CustomizationID>
-<cbc:ID>FA01-12345</cbc:ID>
-<cbc:IssueDate>2022-01-31</cbc:IssueDate>
-<cbc:IssueTime>23:59:23</cbc:IssueTime>
-<cbc:DueDate>2022-01-31</cbc:DueDate>
-<cbc:InvoiceTypeCode listID="0101">01</cbc:InvoiceTypeCode>
-<cbc:Note languageLocaleID="1000">aqui va ek numero convertido a texto</cbc:Note>
-<cbc:DocumentCurrencyCode listID="ISO 4217 Alpha" listName="Currency" listAgencyName="United Nations Economic Commission for Europe">PEN</cbc:DocumentCurrencyCode>
-<cac:Signature>
-<cbc:ID>JSJ SIGN</cbc:ID>
-<cac:SignatoryParty>
-<cac:PartyIdentification>
-<cbc:ID>RUCCCC</cbc:ID>
-</cac:PartyIdentification>
-<cac:PartyName>
-<cbc:Name>RAZON SOCIAL VA AQUI</cbc:Name>
-</cac:PartyName>
-</cac:SignatoryParty>
-<cac:DigitalSignatureAttachment>
-<cac:ExternalReference>
-<cbc:URI>#JSJSign</cbc:URI>
-</cac:ExternalReference>
-</cac:DigitalSignatureAttachment>
-</cac:Signature>
-<cac:AccountingSupplierParty>
-<cac:Party>
-<cac:PartyIdentification>
-<cbc:ID schemeID="6">#JSJSign</cbc:ID>
-</cac:PartyIdentification>
-<cac:PartyName>
-<cbc:Name>RAZON SOCIAL</cbc:Name>
-</cac:PartyName>
-<cac:PartyLegalEntity>
-<cbc:RegistrationName>RAZON SOCIALLLL</cbc:RegistrationName>
-</cac:PartyLegalEntity>
-</cac:Party>
-</cac:AccountingSupplierParty>
-<cac:AccountingCustomerParty>
-<cac:Party>
-<cac:PartyIdentification>
-<cbc:ID schemeID="6">#NUMERO DOC</cbc:ID>
-</cac:PartyIdentification>
-<cac:PartyLegalEntity>
-<cbc:RegistrationName>RAZON SOCIALLLL</cbc:RegistrationName>
-</cac:PartyLegalEntity>
-</cac:Party>
-</cac:AccountingCustomerParty>
-<cac:AllowanceCharge>
-<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-<cbc:AllowanceChargeReasonCode listAgencyName="PE:SUNAT" listName="Cargo/descuento" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo53">50</cbc:AllowanceChargeReasonCode>
-<cbc:MultiplierFactorNumeric>0.25</cbc:MultiplierFactorNumeric>
-<cbc:Amount currencyID="PEN">1111.20</cbc:Amount>
-<cbc:BaseAmount currencyID="PEN">190.2</cbc:BaseAmount>
-</cac:AllowanceCharge>
-<cac:TaxTotal>
-<cbc:TaxAmount currencyID="PEN">1111.20</cbc:TaxAmount>
-<cac:TaxSubtotal>
-<cbc:TaxableAmount currencyID="PEN">1111.20</cbc:TaxableAmount>
-<cbc:TaxAmount currencyID="PEN">1111.20</cbc:TaxAmount>
-<cac:TaxCategory>
-<cac:TaxScheme>
-<cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">1000.00</cbc:ID>
-<cbc:Name>IGV</cbc:Name>
-<cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
-</cac:TaxScheme>
-</cac:TaxCategory>
-</cac:TaxSubtotal>
-</cac:TaxTotal>
-<cac:LegalMonetaryTotal>
-<cbc:LineExtensionAmount currencyID="PEN">1111.20</cbc:LineExtensionAmount>
-<cbc:TaxInclusiveAmount currencyID="PEN">1111.20</cbc:TaxInclusiveAmount>
-<cbc:ChargeTotalAmount currencyID="PEN">1111.20</cbc:ChargeTotalAmount>
-<cbc:PayableAmount currencyID="PEN">1111.20</cbc:PayableAmount>
-</cac:LegalMonetaryTotal>
-<cac:PaymentTerms>
-<cbc:ID>FormaPago</cbc:ID>
-<cbc:PaymentMeansID>Credito</cbc:PaymentMeansID>
-<cbc:Amount currencyID="PEN">150</cbc:Amount>
-</cac:PaymentTerms>
-<cac:PaymentTerms>
-<cbc:ID>FormaPago</cbc:ID>
-<cbc:PaymentMeansID>Cuota001</cbc:PaymentMeansID>
-<cbc:Amount currencyID="PEN">100</cbc:Amount>
-<cbc:PaymentDueDate>2022-11-16</cbc:PaymentDueDate>
-</cac:PaymentTerms>
-<cac:InvoiceLine>
-<cbc:ID>0</cbc:ID>
-<cbc:InvoicedQuantity unitCode="NIU">10</cbc:InvoicedQuantity>
-<cbc:LineExtensionAmount currencyID="PEN">100</cbc:LineExtensionAmount>
-<cac:PricingReference>
-<cac:AlternativeConditionPrice>
-<cbc:PriceAmount currencyID="PEN">100</cbc:PriceAmount>
-<cbc:PriceTypeCode>01</cbc:PriceTypeCode>
-</cac:AlternativeConditionPrice>
-</cac:PricingReference>
-<cac:TaxTotal>
-<cbc:TaxAmount currencyID="PEN">1</cbc:TaxAmount>
-<cac:TaxSubtotal>
-<cbc:TaxableAmount currencyID="PEN">1</cbc:TaxableAmount>
-<cbc:TaxAmount currencyID="PEN">1</cbc:TaxAmount>
-<cac:TaxCategory>
-<cbc:Percent>18</cbc:Percent>
-<cbc:TaxExemptionReasonCode>10</cbc:TaxExemptionReasonCode>
-<cac:TaxScheme>
-<cbc:ID>1000</cbc:ID>
-<cbc:Name>IGV</cbc:Name>
-<cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
-</cac:TaxScheme>
-</cac:TaxCategory>
-</cac:TaxSubtotal>
-</cac:TaxTotal>
-<cac:Item>
-<cbc:Description>DESCRIPTCION</cbc:Description>
-<cac:SellersItemIdentification>
-<cbc:ID>PRODUCTO</cbc:ID>
-</cac:SellersItemIdentification>
-</cac:Item>
-<cac:Price>
-<cbc:PriceAmount currencyID="PEN">1</cbc:PriceAmount>
-</cac:Price>
-</cac:InvoiceLine>
+            <ds:Reference URI="#[object Object]">
+              <ds:Transforms>
+                <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform>
+              </ds:Transforms>
+              <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
+              <ds:DigestValue>20sMbp8i432KbhvWGRFPynPx8ys=</ds:DigestValue>
+            </ds:Reference>
+          </ds:SignedInfo>
+          <ds:SignatureValue>qqRexafAtpPrez24CozyiyyJGC/dak3Zo18iTUbKlA48FPx0iUd6XQqx8xDF4aAm7hP6JWnvK2W7HHxnIiShcWEcb9i7JjO7CmOrcZgwmQKyZzFmkDWBEmIeq54ltm2Xft/rWnYPulEBxGIVabcNWh2ozo6gcgaf1hhRxF4/7F3N3nzE4cXjDdUx7bP/2VQoUzA0djbxDXQo6NMwFTZtvovcFRW/BRezBRT265VtC+125D24kmfygIPE1ckbipw/onyQmhBpvaFcyeN0F79tuwhp/4iojKFasavaC2UVJZgB8RGBUYqjJ10oACc0wR6Fy4C8DjSFr8CJ8lrJK4mU0A==</ds:SignatureValue>
+          <ds:KeyInfo>
+            <ds:X509Data>
+              <ds:X509Certificate>
+MIIFBzCCA++gAwIBAgIIOnyf00j6Vx4wDQYJKoZIhvcNAQELBQAwggENMRswGQYK
+CZImiZPyLGQBGRYLTExBTUEuUEUgU0ExCzAJBgNVBAYTAlBFMQ0wCwYDVQQIDARM
+SU1BMQ0wCwYDVQQHDARMSU1BMRgwFgYDVQQKDA9UVSBFTVBSRVNBIFMuQS4xRTBD
+BgNVBAsMPEROSSA5OTk5OTk5IFJVQyAxMDQyNDUxNzkxMiAtIENFUlRJRklDQURP
+IFBBUkEgREVNT1NUUkFDScOTTjFEMEIGA1UEAww7Tk9NQlJFIFJFUFJFU0VOVEFO
+VEUgTEVHQUwgLSBDRVJUSUZJQ0FETyBQQVJBIERFTU9TVFJBQ0nDk04xHDAaBgkq
+hkiG9w0BCQEWDWRlbW9AbGxhbWEucGUwHhcNMjIxMTExMjIxNDQxWhcNMjQxMTEw
+MjIxNDQxWjCCAQ0xGzAZBgoJkiaJk/IsZAEZFgtMTEFNQS5QRSBTQTELMAkGA1UE
+BhMCUEUxDTALBgNVBAgMBExJTUExDTALBgNVBAcMBExJTUExGDAWBgNVBAoMD1RV
+IEVNUFJFU0EgUy5BLjFFMEMGA1UECww8RE5JIDk5OTk5OTkgUlVDIDEwNDI0NTE3
+OTEyIC0gQ0VSVElGSUNBRE8gUEFSQSBERU1PU1RSQUNJw5NOMUQwQgYDVQQDDDtO
+T01CUkUgUkVQUkVTRU5UQU5URSBMRUdBTCAtIENFUlRJRklDQURPIFBBUkEgREVN
+T1NUUkFDScOTTjEcMBoGCSqGSIb3DQEJARYNZGVtb0BsbGFtYS5wZTCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBANw8WLBi3DTL0I6Xz1O1+wwfn3OdGPVW
+Ni03LwJ4iFDRC+KVBGwdQeHsfLtpvrv1JhUYrSMZXrklhZTncFeafNEF50NqcdD7
+9xFAkZA8Ri8B5cB1Gp3Ux6Jj9qRX5TBHIVyUHThwGQA6JLAXj62RsIcOvfjmr570
+FtQ1i8W0xnw2r9LbZ1bVdGqm+HU6fR4dpRcFnBxBJd6xYQ0k47QPWrnY0Hz1LtDP
+maG4r71fg5C/HeJo6g8MtAietMKdXgbNkRhqAJV/6qxTn59IOmOEszWkt+6WYX+K
+sGl6rsCNKZbW29huj/HxL3oQ27PBlsFAbAzz9wRv3bF1S19DFVZ3KlUCAwEAAaNn
+MGUwHQYDVR0OBBYEFFw4MnAgG5sPdzjYrFiMhTylurAHMB8GA1UdIwQYMBaAFFw4
+MnAgG5sPdzjYrFiMhTylurAHMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA4GA1UdDwEB
+/wQEAwIHgDANBgkqhkiG9w0BAQsFAAOCAQEAwtjQVnaiOvAtCwurKgMUavCy43R1
+/cD9K2VqolRRK62AcpP4Xp0GAd3igxa0Gr8ol3J4aHgDiXHcurmzgYI4VkzmZnQR
+jgwNxWkgDVJGiZGNXMJwgPywFmIRGwOsbMfBb1LHvQoUtgyNI89o1C/StWzEhuiw
+SVnuZO//a9m2/7KC0cOt8ghAGG0shUfxGXb2R8AAUlcygYXe8cKuiYfKeeuIrigz
+wgQZintLmmnUPuUMqr5KO60BDH1+l3GbqavDaWkU2GImhMOV8From+VlRK8Js2pr
+OMNTLJENyX4yBJhrmNAmViO4xdbvEA0gSdrZaoZu6+sFuANypp22J5a5yw==</ds:X509Certificate>
+            </ds:X509Data>
+          </ds:KeyInfo>
+        </ds:Signature>
+      </ext:ExtensionContent>
+    </ext:UBLExtension>
+  </ext:UBLExtensions>
+  <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
+  <cbc:CustomizationID>2.0</cbc:CustomizationID>
+  <cbc:ID>FA01-12345</cbc:ID>
+  <cbc:IssueDate>2022-01-31</cbc:IssueDate>
+  <cbc:IssueTime>23:59:23</cbc:IssueTime>
+  <cbc:DueDate>2022-01-31</cbc:DueDate>
+  <cbc:InvoiceTypeCode listID="0101">01</cbc:InvoiceTypeCode>
+  <cbc:Note languageLocaleID="1000">aqui va ek numero convertido a texto</cbc:Note>
+  <cbc:DocumentCurrencyCode listID="ISO 4217 Alpha" listName="Currency" listAgencyName="United Nations Economic Commission for Europe">PEN</cbc:DocumentCurrencyCode>
+  <cac:Signature>
+    <cbc:ID>JSJ SIGN</cbc:ID>
+    <cac:SignatoryParty>
+      <cac:PartyIdentification>
+        <cbc:ID>RUCCCC</cbc:ID>
+      </cac:PartyIdentification>
+      <cac:PartyName>
+        <cbc:Name>RAZON SOCIAL VA AQUI</cbc:Name>
+      </cac:PartyName>
+    </cac:SignatoryParty>
+    <cac:DigitalSignatureAttachment>
+      <cac:ExternalReference>
+        <cbc:URI>#JSJSign</cbc:URI>
+      </cac:ExternalReference>
+    </cac:DigitalSignatureAttachment>
+  </cac:Signature>
+  <cac:AccountingSupplierParty>
+    <cac:Party>
+      <cac:PartyIdentification>
+        <cbc:ID schemeID="6">#JSJSign</cbc:ID>
+      </cac:PartyIdentification>
+      <cac:PartyName>
+        <cbc:Name>RAZON SOCIAL</cbc:Name>
+      </cac:PartyName>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName>RAZON SOCIALLLL</cbc:RegistrationName>
+      </cac:PartyLegalEntity>
+    </cac:Party>
+  </cac:AccountingSupplierParty>
+  <cac:AccountingCustomerParty>
+    <cac:Party>
+      <cac:PartyIdentification>
+        <cbc:ID schemeID="6">#NUMERO DOC</cbc:ID>
+      </cac:PartyIdentification>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName>RAZON SOCIALLLL</cbc:RegistrationName>
+      </cac:PartyLegalEntity>
+    </cac:Party>
+  </cac:AccountingCustomerParty>
+  <cac:AllowanceCharge>
+    <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReasonCode listAgencyName="PE:SUNAT" listName="Cargo/descuento" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo53">50</cbc:AllowanceChargeReasonCode>
+    <cbc:MultiplierFactorNumeric>0.25</cbc:MultiplierFactorNumeric>
+    <cbc:Amount currencyID="PEN">1111.20</cbc:Amount>
+    <cbc:BaseAmount currencyID="PEN">190.2</cbc:BaseAmount>
+  </cac:AllowanceCharge>
+  <cac:TaxTotal>
+    <cbc:TaxAmount currencyID="PEN">1111.20</cbc:TaxAmount>
+    <cac:TaxSubtotal>
+      <cbc:TaxableAmount currencyID="PEN">1111.20</cbc:TaxableAmount>
+      <cbc:TaxAmount currencyID="PEN">1111.20</cbc:TaxAmount>
+      <cac:TaxCategory>
+        <cac:TaxScheme>
+          <cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">1000.00</cbc:ID>
+          <cbc:Name>IGV</cbc:Name>
+          <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+        </cac:TaxScheme>
+      </cac:TaxCategory>
+    </cac:TaxSubtotal>
+  </cac:TaxTotal>
+  <cac:LegalMonetaryTotal>
+    <cbc:LineExtensionAmount currencyID="PEN">1111.20</cbc:LineExtensionAmount>
+    <cbc:TaxInclusiveAmount currencyID="PEN">1111.20</cbc:TaxInclusiveAmount>
+    <cbc:ChargeTotalAmount currencyID="PEN">1111.20</cbc:ChargeTotalAmount>
+    <cbc:PayableAmount currencyID="PEN">1111.20</cbc:PayableAmount>
+  </cac:LegalMonetaryTotal>
+  <cac:PaymentTerms>
+    <cbc:ID>FormaPago</cbc:ID>
+    <cbc:PaymentMeansID>Credito</cbc:PaymentMeansID>
+    <cbc:Amount currencyID="PEN">150</cbc:Amount>
+  </cac:PaymentTerms>
+  <cac:PaymentTerms>
+    <cbc:ID>FormaPago</cbc:ID>
+    <cbc:PaymentMeansID>Cuota001</cbc:PaymentMeansID>
+    <cbc:Amount currencyID="PEN">100</cbc:Amount>
+    <cbc:PaymentDueDate>2022-11-16</cbc:PaymentDueDate>
+  </cac:PaymentTerms>
+  <cac:InvoiceLine>
+    <cbc:ID>0</cbc:ID>
+    <cbc:InvoicedQuantity unitCode="NIU">10</cbc:InvoicedQuantity>
+    <cbc:LineExtensionAmount currencyID="PEN">100</cbc:LineExtensionAmount>
+    <cac:PricingReference>
+      <cac:AlternativeConditionPrice>
+        <cbc:PriceAmount currencyID="PEN">100</cbc:PriceAmount>
+        <cbc:PriceTypeCode>01</cbc:PriceTypeCode>
+      </cac:AlternativeConditionPrice>
+    </cac:PricingReference>
+    <cac:TaxTotal>
+      <cbc:TaxAmount currencyID="PEN">1</cbc:TaxAmount>
+      <cac:TaxSubtotal>
+        <cbc:TaxableAmount currencyID="PEN">1</cbc:TaxableAmount>
+        <cbc:TaxAmount currencyID="PEN">1</cbc:TaxAmount>
+        <cac:TaxCategory>
+          <cbc:Percent>18</cbc:Percent>
+          <cbc:TaxExemptionReasonCode>10</cbc:TaxExemptionReasonCode>
+          <cac:TaxScheme>
+            <cbc:ID>1000</cbc:ID>
+            <cbc:Name>IGV</cbc:Name>
+            <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+          </cac:TaxScheme>
+        </cac:TaxCategory>
+      </cac:TaxSubtotal>
+    </cac:TaxTotal>
+    <cac:Item>
+      <cbc:Description>DESCRIPTCION</cbc:Description>
+      <cac:SellersItemIdentification>
+        <cbc:ID>PRODUCTO</cbc:ID>
+      </cac:SellersItemIdentification>
+    </cac:Item>
+    <cac:Price>
+      <cbc:PriceAmount currencyID="PEN">1</cbc:PriceAmount>
+    </cac:Price>
+  </cac:InvoiceLine>
 </Invoice>
